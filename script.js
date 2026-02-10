@@ -224,6 +224,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroSection = document.querySelector('.hero');
     if (heroSection) heroObserver.observe(heroSection);
 
+    // ─── Unicorn Studio Lazy Load on Scroll ───
+    let unicornLoaded = false;
+    const videoSection = document.getElementById('videoEffects');
+    if (videoSection) {
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !unicornLoaded) {
+                    unicornLoaded = true;
+                    const script = document.createElement('script');
+                    script.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js';
+                    script.onload = function () {
+                        UnicornStudio.init();
+                        const container = document.getElementById('unicornContainer');
+                        if (container) {
+                            setTimeout(() => container.classList.add('loaded'), 300);
+                        }
+                    };
+                    document.head.appendChild(script);
+                    videoObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.1 });
+        videoObserver.observe(videoSection);
+    }
+
     // ─── Smooth scroll for anchor links ───
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

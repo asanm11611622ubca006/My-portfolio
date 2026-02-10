@@ -591,6 +591,29 @@ img {
 }
 
 /* ========================================
+   Video Effects Section
+   ======================================== */
+.video-section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.video-container.loaded {
+    opacity: 1;
+}
+
+/* ========================================
    Sections Common
    ======================================== */
 .section {
