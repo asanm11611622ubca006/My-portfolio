@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandra Kumar S | AI Engineer Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Chandra Kumar S - AI Engineer specializing in Machine Learning, Deep Learning, LLMs, and Full-Stack AI Systems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle Background -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>CK<span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">
+                    <span class="greeting-line"></span>
+                    Hello, I'm
+                </p>
+                <h1 class="hero-name">
+                    <span class="name-line" data-text="Chandra Kumar S">Chandra Kumar S</span>
+                </h1>
+                <div class="hero-title-wrapper">
+                    <span class="hero-title-prefix">I'm a</span>
+                    <span class="hero-title" id="typedText"></span>
+                    <span class="typed-cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    Aspiring AI Engineer with strong hands-on experience in
+                    <span class="highlight">Artificial Intelligence</span>,
+                    <span class="highlight">Machine Learning</span>,
+                    <span class="highlight">Deep Learning</span>, and
+                    <span class="highlight">Full-Stack AI Systems</span>.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="13">0</span>+
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="10">0</span>+
+                        <span class="stat-label">Tech Skills</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-frame">
+                    <div class="image-glow"></div>
+                    <img src="Chandru.jpeg" alt="Chandra Kumar S - AI Engineer" loading="eager">
+                    <div class="image-border-animation"></div>
+                </div>
+                <div class="floating-badges">
+                    <div class="badge badge-1"><i class="fas fa-brain"></i> AI/ML</div>
+                    <div class="badge badge-2"><i class="fas fa-code"></i> Python</div>
+                    <div class="badge badge-3"><i class="fas fa-cloud"></i> Cloud</div>
+                    <div class="badge badge-4"><i class="fas fa-database"></i> LLM</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">01.</span> About Me
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm an ambitious <span class="highlight">MCA student</span> and <span class="highlight">Gen Z
+                            developer</span>
+                        specializing in AI-powered applications. I'm passionate about creating real-world,
+                        scalable AI solutions that make a difference.
+                    </p>
+                    <p>
+                        With proven ability to design, build, and deploy intelligent applications using
+                        <span class="highlight">LLMs</span>, <span class="highlight">FastAPI</span>, and
+                        <span class="highlight">cloud platforms</span>, I combine cutting-edge AI technologies
+                        with solid engineering practices to build production-ready systems.
+                    </p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>India</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>MCA (2025–2027)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>AI Engineer | Fresher</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Open to Opportunities</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="code-title">about_me.py</span>
+                        </div>
+                        <pre
+                            class="code-content"><code><span class="code-keyword">class</span> <span class="code-class">ChandraKumar</span>:
+    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(<span class="code-param">self</span>):
+        <span class="code-param">self</span>.name = <span class="code-string">"Chandra Kumar S"</span>
+        <span class="code-param">self</span>.role = <span class="code-string">"AI Engineer"</span>
+        <span class="code-param">self</span>.languages = [<span class="code-string">"Python"</span>]
+        <span class="code-param">self</span>.ai_stack = [
+            <span class="code-string">"RAG"</span>, <span class="code-string">"LLMs"</span>,
+            <span class="code-string">"CrewAI"</span>, <span class="code-string">"Whisper"</span>,
+            <span class="code-string">"Gemini Vision"</span>
+        ]
+        <span class="code-param">self</span>.cloud = [
+            <span class="code-string">"AWS"</span>, <span class="code-string">"Render"</span>,
+            <span class="code-string">"Vercel"</span>
+        ]
+
+    <span class="code-keyword">def</span> <span class="code-func">passion</span>(<span class="code-param">self</span>):
+        <span class="code-keyword">return</span> <span class="code-string">"Building AI solutions 🚀"</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section section-alt" id="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">02.</span> Experience
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <h3>AI / ML / Data Analytics Intern</h3>
+                            <span class="timeline-company">
+                                <i class="fas fa-building"></i> NoviTech R&D Private Limited
+                            </span>
+                            <span class="timeline-date">
+                                <i class="fas fa-calendar-alt"></i> December 2025 – January 2026
+                            </span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Completed an intensive 1-month internship covering Artificial Intelligence, Machine
+                                Learning, and Data Analytics.</li>
+                            <li>Worked on data preprocessing, exploratory data analysis (EDA), and feature engineering
+                                using Python and Pandas.</li>
+                            <li>Built and evaluated Machine Learning models using supervised and unsupervised
+                                techniques.</li>
+                            <li>Gained practical exposure to Deep Learning architectures (ANN, CNN).</li>
+                            <li>Assisted in model deployment using FastAPI and cloud platforms.</li>
+                            <li>Developed an understanding of industry-level AI workflows and deployment pipelines.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">ML</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">FastAPI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">03.</span> Projects
+            </h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Chandruasanm11611622ubca006" target="_blank" rel="noopener"
+                                title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Multi-Modal AI Desktop Agent</h3>
+                    <p class="project-description">
+                        Desktop-based AI agent combining Voice, Vision, and RAG. Features real-time screen analysis
+                        with Gemini Pro Vision, multilingual voice control with Whisper, and autonomous CrewAI agents
+                        for web search, system automation, and code analysis.
+                    </p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Gemini Pro Vision for real-time screen analysis</li>
+                        <li><i class="fas fa-check"></i> Whisper for multilingual voice control (EN & Tamil)</li>
+                        <li><i class="fas fa-check"></i> CrewAI autonomous agents for automation</li>
+                        <li><i class="fas fa-check"></i> ChromaDB for vector storage & retrieval</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>FastAPI</span>
+                        <span>CrewAI</span>
+                        <span>RAG</span>
+                        <span>Whisper</span>
+                        <span>Gemini Vision</span>
+                        <span>ChromaDB</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-card featured">
+                    <div class="featured-badge">
+                        <i class="fas fa-star"></i> Featured
+                    </div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://main.dpq5p5gb18t5o.amplifyapp.com/" target="_blank" rel="noopener"
+                                title="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/Chandruasanm11611622ubca006" target="_blank" rel="noopener"
+                                title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">AI Power BI Dashboard Generator</h3>
+                    <p class="project-description">
+                        LLM-Powered Analytics Platform that automatically converts raw CSV/Excel files into meaningful
+                        business insights. Features a FastAPI + Pandas pipeline with Gemini 2.5 LLM for generating
+                        metrics and KPIs. Reduced dashboard creation from hours to seconds.
+                    </p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> AI-driven automatic dashboard generation</li>
+                        <li><i class="fas fa-check"></i> Gemini 2.5 LLM for metrics & KPI generation</li>
+                        <li><i class="fas fa-check"></i> React + TypeScript modern frontend</li>
+                        <li><i class="fas fa-check"></i> AWS Amplify + EC2 deployment</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>FastAPI</span>
+                        <span>MongoDB</span>
+                        <span>Gemini 2.5</span>
+                        <span>AWS</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Chandruasanm11611622ubca006" target="_blank" rel="noopener"
+                                title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Full-Stack Jewellery E-Commerce</h3>
+                    <p class="project-description">
+                        Real-time jewellery shopping website with full frontend and backend integration.
+                        Features REST APIs, relational data management with PostgreSQL, and complete
+                        e-commerce workflows including product listing, cart, and order management.
+                    </p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Full frontend & backend integration</li>
+                        <li><i class="fas fa-check"></i> RESTful APIs with PostgreSQL</li>
+                        <li><i class="fas fa-check"></i> Cart & order management workflows</li>
+                        <li><i class="fas fa-check"></i> Deployed on Render</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>Frontend</span>
+                        <span>Backend APIs</span>
+                        <span>PostgreSQL</span>
+                        <span>Render</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-lungs-virus"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Chandruasanm11611622ubca006" target="_blank" rel="noopener"
+                                title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">COVID-19 X-Ray Classifier</h3>
+                    <p class="project-description">
+                        CNN-based binary classification model for COVID-19 detection from chest X-ray images.
+                        Achieved 96% accuracy and 0.96 F1-Score. Integrated into a Tkinter desktop application
+                        for instant patient screening.
+                    </p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> 96% Accuracy & 0.96 F1-Score</li>
+                        <li><i class="fas fa-check"></i> CNN binary classification model</li>
+                        <li><i class="fas fa-check"></i> Image preprocessing with OpenCV</li>
+                        <li><i class="fas fa-check"></i> Tkinter desktop application</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>TensorFlow</span>
+                        <span>CNN</span>
+                        <span>OpenCV</span>
+                        <span>NumPy</span>
+                        <span>Tkinter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">04.</span> Technical Skills
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category glass-card">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3>Programming</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Python</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Machine Learning</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Supervised Learning</span>
+                        <span class="skill-tag">Unsupervised Learning</span>
+                        <span class="skill-tag">Reinforcement Learning</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Deep Learning</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">ANN</span>
+                        <span class="skill-tag">CNN</span>
+                        <span class="skill-tag">RNN</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI & LLM</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">RAG</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">Gemini LLM & Vision API</span>
+                        <span class="skill-tag">Whisper</span>
+                        <span class="skill-tag">CrewAI</span>
+                        <span class="skill-tag">ChromaDB</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <h3>Backend & APIs</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">FastAPI</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3>Databases</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud & Deployment</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">AWS Amplify</span>
+                        <span class="skill-tag">EC2</span>
+                        <span class="skill-tag">Render</span>
+                        <span class="skill-tag">Vercel</span>
+                        <span class="skill-tag">Netlify</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Tools</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">Jupyter Notebook</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">05.</span> Education
+            </h2>
+            <div class="education-grid">
+                <div class="education-card glass-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="edu-content">
+                        <h3>Master of Computer Applications</h3>
+                        <p class="edu-institution">Bharathidasan University</p>
+                        <span class="edu-year">2025 – 2027</span>
+                        <span class="edu-status pursuing">Pursuing</span>
+                    </div>
+                </div>
+                <div class="education-card glass-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="edu-content">
+                        <h3>Bachelor of Computer Applications</h3>
+                        <p class="edu-institution">Annamalai University</p>
+                        <span class="edu-year">2025</span>
+                        <span class="edu-score"><i class="fas fa-star"></i> 7.32 CGPA</span>
+                    </div>
+                </div>
+                <div class="education-card glass-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="edu-content">
+                        <h3>12th Standard</h3>
+                        <p class="edu-institution">Sacred Heart Higher Secondary School (State Board)</p>
+                        <span class="edu-year">2022</span>
+                        <span class="edu-score"><i class="fas fa-star"></i> 76.75%</span>
+                    </div>
+                </div>
+                <div class="education-card glass-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="edu-content">
+                        <h3>10th Standard</h3>
+                        <p class="edu-institution">Sacred Heart Higher Secondary School (State Board)</p>
+                        <span class="edu-year">2020</span>
+                        <span class="edu-score"><i class="fas fa-star"></i> 60.33%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section section-alt" id="certifications">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">06.</span> Certifications
+            </h2>
+            <div class="certifications-grid">
+                <div class="cert-card glass-card">
+                    <div class="cert-image">
+                        <img src="Artificial intelligence  internship.jpeg" alt="AI Internship Certificate"
+                            loading="lazy">
+                        <div class="cert-overlay">
+                            <button class="cert-zoom"
+                                onclick="openLightbox('Artificial intelligence  internship.jpeg', 'Artificial Intelligence Internship')">
+                                <i class="fas fa-search-plus"></i> View Full
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h3>Artificial Intelligence Internship</h3>
+                        <p>NoviTech R&D Pvt. Ltd.</p>
+                        <span class="cert-badge"><i class="fas fa-certificate"></i> Verified</span>
+                    </div>
+                </div>
+                <div class="cert-card glass-card">
+                    <div class="cert-image">
+                        <img src="Machine Learning  internship.jpeg" alt="Machine Learning Internship Certificate"
+                            loading="lazy">
+                        <div class="cert-overlay">
+                            <button class="cert-zoom"
+                                onclick="openLightbox('Machine Learning  internship.jpeg', 'Machine Learning Internship')">
+                                <i class="fas fa-search-plus"></i> View Full
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h3>Machine Learning Internship</h3>
+                        <p>NoviTech R&D Pvt. Ltd.</p>
+                        <span class="cert-badge"><i class="fas fa-certificate"></i> Verified</span>
+                    </div>
+                </div>
+                <div class="cert-card glass-card">
+                    <div class="cert-image">
+                        <img src="Data Analytics internship.jpeg" alt="Data Analytics Internship Certificate"
+                            loading="lazy">
+                        <div class="cert-overlay">
+                            <button class="cert-zoom"
+                                onclick="openLightbox('Data Analytics internship.jpeg', 'Data Analytics Internship')">
+                                <i class="fas fa-search-plus"></i> View Full
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h3>Data Analytics Internship</h3>
+                        <p>NoviTech R&D Pvt. Ltd.</p>
+                        <span class="cert-badge"><i class="fas fa-certificate"></i> Verified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">07.</span> Get In Touch
+            </h2>
+            <div class="contact-content">
+                <div class="contact-text">
+                    <h3>Let's work together!</h3>
+                    <p>
+                        I'm currently looking for opportunities as an AI Engineer. Whether you have a question
+                        or just want to say hi, I'll try my best to get back to you!
+                    </p>
+                </div>
+                <div class="contact-cards">
+                    <a href="mailto:chandruchandru9045@gmail.com" class="contact-card glass-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <h4>Email</h4>
+                        <p>chandruchandru9045@gmail.com</p>
+                    </a>
+                    <a href="tel:+919791402934" class="contact-card glass-card">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <h4>Phone</h4>
+                        <p>+91 9791402934</p>
+                    </a>
+                    <a href="https://github.com/Chandruasanm11611622ubca006" target="_blank" rel="noopener"
+                        class="contact-card glass-card">
+                        <div class="contact-icon"><i class="fab fa-github"></i></div>
+                        <h4>GitHub</h4>
+                        <p>Chandruasanm11611622ubca006</p>
+                    </a>
+                    <a href="https://main.dpq5p5gb18t5o.amplifyapp.com/" target="_blank" rel="noopener"
+                        class="contact-card glass-card">
+                        <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                        <h4>Live App</h4>
+                        <p>AI Dashboard Generator</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>Chandra Kumar S<span class="logo-bracket">/&gt;</span>
+                </p>
+                <p class="footer-tagline">AI Engineer | Building Intelligent Solutions</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/Chandruasanm11611622ubca006" target="_blank" rel="noopener"
+                        title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:chandruchandru9045@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+919791402934" title="Phone"><i class="fas fa-phone"></i></a>
+                </div>
+                <p class="footer-copyright">&copy; 2026 Chandra Kumar S. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+            <p class="lightbox-caption" id="lightboxCaption"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
