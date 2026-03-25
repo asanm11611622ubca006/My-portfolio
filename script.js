@@ -1,8 +1,177 @@
 /* =========================================
-   Portfolio JavaScript - Chandra Kumar S
-   ========================================= */
+    Portfolio JavaScript - Chandra Kumar S
+    ========================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // ─── KPI Counter Animation ───
+    function animateKPICounters() {
+        const counters = document.querySelectorAll('.kpi-number');
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            function updateCounter() {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            }
+            updateCounter();
+        });
+    }
+
+    // ─── Skill Bar Animation ───
+    function animateSkillBars() {
+        const skillBars = document.querySelectorAll('.skill-bar-fill, .progress-bar-fill');
+        skillBars.forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            if (width) {
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 300);
+            }
+        });
+    }
+
+    // ─── Chart.js Skills Radar Chart ───
+    const radarCtx = document.getElementById('skillsRadarChart');
+    if (radarCtx) {
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Python', 'ML', 'Deep Learning', 'LLM/RAG', 'FastAPI', 'React', 'Cloud', 'Databases'],
+                datasets: [{
+                    label: 'Skill Level',
+                    data: [95, 90, 85, 88, 92, 80, 78, 82],
+                    backgroundColor: 'rgba(108, 99, 255, 0.2)',
+                    borderColor: 'rgba(108, 99, 255, 0.8)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(108, 99, 255, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(108, 99, 255, 1)',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            display: false,
+                            backdropColor: 'transparent'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        angleLines: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        pointLabels: {
+                            color: '#9898b0',
+                            font: {
+                                size: 10
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+    // ─── Chart.js Skills Donut Chart ───
+    const donutCtx = document.getElementById('skillsDonutChart');
+    if (donutCtx) {
+        new Chart(donutCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['AI/ML', 'Backend', 'Frontend', 'Cloud', 'Tools'],
+                datasets: [{
+                    data: [35, 25, 15, 15, 10],
+                    backgroundColor: [
+                        'rgba(108, 99, 255, 0.8)',
+                        'rgba(0, 212, 170, 0.8)',
+                        'rgba(255, 107, 157, 0.8)',
+                        'rgba(255, 193, 7, 0.8)',
+                        'rgba(104, 104, 160, 0.8)'
+                    ],
+                    borderColor: 'rgba(17, 17, 24, 0.8)',
+                    borderWidth: 3,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '65%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#9898b0',
+                            padding: 12,
+                            font: {
+                                size: 10
+                            },
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // ─── Scroll Observer for Animations ───
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Trigger KPI counters when hero is visible
+                if (entry.target.classList.contains('kpi-dashboard')) {
+                    animateKPICounters();
+                }
+                // Trigger skill bars when skills section is visible
+                if (entry.target.closest('#skills')) {
+                    animateSkillBars();
+                }
+                // Trigger experience progress when visible
+                if (entry.target.closest('#experience')) {
+                    animateSkillBars();
+                }
+            }
+        });
+    }, { threshold: 0.3 });
+
+    // Observe KPI dashboard
+    const kpiDashboard = document.querySelector('.kpi-dashboard');
+    if (kpiDashboard) animationObserver.observe(kpiDashboard);
+
+    // Observe skills section
+    const skillsSection = document.querySelector('#skills');
+    if (skillsSection) animationObserver.observe(skillsSection);
+
+    // Observe experience section
+    const experienceSection = document.querySelector('#experience');
+    if (experienceSection) animationObserver.observe(experienceSection);
+
+    // Trigger counters immediately if page is already scrolled
+    if (window.scrollY > 100) {
+        animateKPICounters();
+    }
 
     // ─── Particle Background ───
     const canvas = document.getElementById('particleCanvas');
@@ -169,28 +338,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     typeEffect();
 
-    // ─── Counter Animation ───
-    function animateCounters() {
-        const counters = document.querySelectorAll('.stat-number');
-        counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-
-            function updateCounter() {
-                current += step;
-                if (current < target) {
-                    counter.textContent = Math.floor(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    counter.textContent = target;
-                }
-            }
-            updateCounter();
-        });
-    }
-
     // ─── Scroll Reveal Animation ───
     const revealElements = document.querySelectorAll(
         '.glass-card, .section-title, .about-text, .about-image, .hero-content, .timeline-item, .education-card, .contact-card, .contact-text'
@@ -210,19 +357,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     revealElements.forEach(el => observer.observe(el));
-
-    // Trigger counter animation when hero is visible
-    const heroObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounters();
-                heroObserver.disconnect();
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) heroObserver.observe(heroSection);
 
     // ─── Smooth scroll for anchor links ───
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

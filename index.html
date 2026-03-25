@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -76,16 +77,6 @@
                         <i class="fas fa-envelope"></i> Contact Me
                     </a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="13">0</span>+
-                        <span class="stat-label">Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="10">0</span>+
-                        <span class="stat-label">Tech Skills</span>
-                    </div>
-                </div>
             </div>
             <div class="hero-image">
                 <div class="image-frame">
@@ -93,19 +84,71 @@
                     <img src="Chandru.jpeg" alt="Chandra Kumar S - AI Engineer" loading="eager">
                     <div class="image-border-animation"></div>
                 </div>
-                <div class="floating-badges">
-                    <div class="badge badge-1"><i class="fas fa-brain"></i> AI/ML</div>
-                    <div class="badge badge-2"><i class="fas fa-code"></i> Python</div>
-                    <div class="badge badge-3"><i class="fas fa-cloud"></i> Cloud</div>
-                    <div class="badge badge-4"><i class="fas fa-database"></i> LLM</div>
+                <div class="floating-badges-right">
+                    <div class="badge-right badge-1"><i class="fab fa-python"></i> Python</div>
+                    <div class="badge-right badge-2"><i class="fas fa-brain"></i> ML</div>
+                    <div class="badge-right badge-3"><i class="fas fa-robot"></i> LLM</div>
+                    <div class="badge-right badge-4"><i class="fas fa-bolt"></i> FastAPI</div>
                 </div>
             </div>
         </div>
+
+        <!-- Dashboard KPI Cards -->
+        <div class="kpi-dashboard">
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-project-diagram"></i></div>
+                <div class="kpi-content">
+                    <span class="kpi-number" data-target="13">0</span>
+                    <span class="kpi-suffix">+</span>
+                    <span class="kpi-label">Projects</span>
+                </div>
+                <div class="kpi-trend up"><i class="fas fa-arrow-up"></i> 25%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-code"></i></div>
+                <div class="kpi-content">
+                    <span class="kpi-number" data-target="10">0</span>
+                    <span class="kpi-suffix">+</span>
+                    <span class="kpi-label">Tech Skills</span>
+                </div>
+                <div class="kpi-trend up"><i class="fas fa-arrow-up"></i> 5%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-brain"></i></div>
+                <div class="kpi-content">
+                    <span class="kpi-number" data-target="96">0</span>
+                    <span class="kpi-suffix">%</span>
+                    <span class="kpi-label">Accuracy</span>
+                </div>
+                <div class="kpi-trend up"><i class="fas fa-arrow-up"></i> 2%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-certificate"></i></div>
+                <div class="kpi-content">
+                    <span class="kpi-number" data-target="3">0</span>
+                    <span class="kpi-suffix">+</span>
+                    <span class="kpi-label">Certifications</span>
+                </div>
+                <div class="kpi-trend neutral"><i class="fas fa-minus"></i> 0%</div>
+            </div>
+        </div>
         <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
+            <div class="scroll-graphic">
+                <div class="scroll-mouse"></div>
+                <div class="scroll-wheel"></div>
+                <div class="scroll-line"></div>
+                <div class="scroll-arrows">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
             <p>Scroll Down</p>
+            <div class="scroll-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </section>
 
@@ -188,39 +231,49 @@
             <h2 class="section-title">
                 <span class="title-number">02.</span> Experience
             </h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
+            <div class="experience-dashboard">
+                <div class="experience-card glass-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="experience-title-block">
                             <h3>AI / ML / Data Analytics Intern</h3>
-                            <span class="timeline-company">
-                                <i class="fas fa-building"></i> NoviTech R&D Private Limited
-                            </span>
-                            <span class="timeline-date">
-                                <i class="fas fa-calendar-alt"></i> December 2025 – January 2026
-                            </span>
+                            <span class="experience-company">NoviTech R&D Private Limited</span>
                         </div>
-                        <ul class="timeline-details">
-                            <li>Completed an intensive 1-month internship covering Artificial Intelligence, Machine
-                                Learning, and Data Analytics.</li>
-                            <li>Worked on data preprocessing, exploratory data analysis (EDA), and feature engineering
-                                using Python and Pandas.</li>
-                            <li>Built and evaluated Machine Learning models using supervised and unsupervised
-                                techniques.</li>
-                            <li>Gained practical exposure to Deep Learning architectures (ANN, CNN).</li>
-                            <li>Assisted in model deployment using FastAPI and cloud platforms.</li>
-                            <li>Developed an understanding of industry-level AI workflows and deployment pipelines.</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Pandas</span>
-                            <span class="tag">ML</span>
-                            <span class="tag">Deep Learning</span>
-                            <span class="tag">FastAPI</span>
+                        <div class="experience-duration">
+                            <span class="duration-badge">1 Month</span>
                         </div>
+                    </div>
+                    <div class="experience-date">
+                        <i class="fas fa-calendar-alt"></i> December 2025 – January 2026
+                    </div>
+                    <div class="experience-progress">
+                        <div class="progress-header">
+                            <span><i class="fas fa-tasks"></i> Progress</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="progress-bar-track">
+                            <div class="progress-bar-fill" data-width="100"></div>
+                        </div>
+                    </div>
+                    <ul class="timeline-details">
+                        <li>Completed an intensive 1-month internship covering Artificial Intelligence, Machine
+                            Learning, and Data Analytics.</li>
+                        <li>Worked on data preprocessing, exploratory data analysis (EDA), and feature engineering
+                            using Python and Pandas.</li>
+                        <li>Built and evaluated Machine Learning models using supervised and unsupervised
+                            techniques.</li>
+                        <li>Gained practical exposure to Deep Learning architectures (ANN, CNN).</li>
+                        <li>Assisted in model deployment using FastAPI and cloud platforms.</li>
+                        <li>Developed an understanding of industry-level AI workflows and deployment pipelines.</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">ML</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">FastAPI</span>
                     </div>
                 </div>
             </div>
@@ -245,6 +298,16 @@
                                 title="GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
+                        </div>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric-item">
+                            <span class="metric-value">4+</span>
+                            <span class="metric-label">AI Models</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-value">2</span>
+                            <span class="metric-label">Languages</span>
                         </div>
                     </div>
                     <h3 class="project-title">Multi-Modal AI Desktop Agent</h3>
@@ -290,6 +353,16 @@
                             </a>
                         </div>
                     </div>
+                    <div class="project-metrics">
+                        <div class="metric-item">
+                            <span class="metric-value">90%</span>
+                            <span class="metric-label">Time Saved</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-value">Live</span>
+                            <span class="metric-label">Deployed</span>
+                        </div>
+                    </div>
                     <h3 class="project-title">AI Power BI Dashboard Generator</h3>
                     <p class="project-description">
                         LLM-Powered Analytics Platform that automatically converts raw CSV/Excel files into meaningful
@@ -323,6 +396,16 @@
                                 title="GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
+                        </div>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric-item">
+                            <span class="metric-value">30+</span>
+                            <span class="metric-label">ML Models</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-value">Auto</span>
+                            <span class="metric-label">Selection</span>
                         </div>
                     </div>
                     <h3 class="project-title">AutoML Full-Stack Platform</h3>
@@ -360,6 +443,16 @@
                             </a>
                         </div>
                     </div>
+                    <div class="project-metrics">
+                        <div class="metric-item success">
+                            <span class="metric-value">96%</span>
+                            <span class="metric-label">Accuracy</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-value">0.96</span>
+                            <span class="metric-label">F1-Score</span>
+                        </div>
+                    </div>
                     <h3 class="project-title">COVID-19 X-Ray Classifier</h3>
                     <p class="project-description">
                         CNN-based binary classification model for COVID-19 detection from chest X-ray images.
@@ -390,77 +483,115 @@
             <h2 class="section-title">
                 <span class="title-number">04.</span> Technical Skills
             </h2>
-            <div class="skills-grid">
-                <div class="skill-category glass-card">
-                    <div class="skill-icon"><i class="fas fa-code"></i></div>
-                    <h3>Programming</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">Python</span>
+            <div class="skills-dashboard">
+                <div class="skills-progress-section">
+                    <h3 class="skills-section-title"><i class="fas fa-chart-bar"></i> Skill Proficiency</h3>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name"><i class="fab fa-python"></i> Python</span>
+                            <span class="skill-bar-percent">95%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name"><i class="fas fa-brain"></i> Machine Learning</span>
+                            <span class="skill-bar-percent">90%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name"><i class="fas fa-network-wired"></i> Deep Learning</span>
+                            <span class="skill-bar-percent">85%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name"><i class="fas fa-robot"></i> LLM & RAG</span>
+                            <span class="skill-bar-percent">88%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name"><i class="fas fa-server"></i> FastAPI</span>
+                            <span class="skill-bar-percent">92%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="92"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name"><i class="fab fa-react"></i> React</span>
+                            <span class="skill-bar-percent">80%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name"><i class="fas fa-cloud"></i> AWS Cloud</span>
+                            <span class="skill-bar-percent">78%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="78"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name"><i class="fas fa-database"></i> Databases</span>
+                            <span class="skill-bar-percent">82%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="82"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category glass-card">
-                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                    <h3>Machine Learning</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">Supervised Learning</span>
-                        <span class="skill-tag">Unsupervised Learning</span>
-                        <span class="skill-tag">Reinforcement Learning</span>
+                <div class="skills-charts-section">
+                    <div class="chart-card glass-card">
+                        <h3 class="chart-title"><i class="fas fa-chart-polar-area"></i> Skills Balance</h3>
+                        <div class="chart-container">
+                            <canvas id="skillsRadarChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass-card">
+                        <h3 class="chart-title"><i class="fas fa-chart-pie"></i> Category Split</h3>
+                        <div class="chart-container">
+                            <canvas id="skillsDonutChart"></canvas>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category glass-card">
-                    <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
-                    <h3>Deep Learning</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">ANN</span>
-                        <span class="skill-tag">CNN</span>
-                        <span class="skill-tag">RNN</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card">
-                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
-                    <h3>AI & LLM</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">RAG</span>
-                        <span class="skill-tag">Prompt Engineering</span>
-                        <span class="skill-tag">Gemini LLM & Vision API</span>
-                        <span class="skill-tag">Whisper</span>
-                        <span class="skill-tag">CrewAI</span>
-                        <span class="skill-tag">ChromaDB</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card">
-                    <div class="skill-icon"><i class="fas fa-server"></i></div>
-                    <h3>Backend & APIs</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">FastAPI</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card">
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <h3>Databases</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card">
-                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-                    <h3>Cloud & Deployment</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">AWS Amplify</span>
-                        <span class="skill-tag">EC2</span>
-                        <span class="skill-tag">Render</span>
-                        <span class="skill-tag">Vercel</span>
-                        <span class="skill-tag">Netlify</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card">
-                    <div class="skill-icon"><i class="fas fa-tools"></i></div>
-                    <h3>Tools</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">Git & GitHub</span>
-                        <span class="skill-tag">Jupyter Notebook</span>
-                        <span class="skill-tag">VS Code</span>
+                <div class="skills-tags-section">
+                    <h3 class="skills-section-title"><i class="fas fa-tags"></i> Technology Stack</h3>
+                    <div class="skill-tags-cloud">
+                        <span class="skill-tag-item"><i class="fab fa-python"></i> Python</span>
+                        <span class="skill-tag-item"><i class="fas fa-brain"></i> ML</span>
+                        <span class="skill-tag-item"><i class="fas fa-network-wired"></i> Deep Learning</span>
+                        <span class="skill-tag-item"><i class="fas fa-robot"></i> RAG</span>
+                        <span class="skill-tag-item"><i class="fas fa-comments"></i> LLMs</span>
+                        <span class="skill-tag-item"><i class="fas fa-bolt"></i> FastAPI</span>
+                        <span class="skill-tag-item"><i class="fab fa-react"></i> React</span>
+                        <span class="skill-tag-item"><i class="fab fa-js"></i> TypeScript</span>
+                        <span class="skill-tag-item"><i class="fas fa-database"></i> MongoDB</span>
+                        <span class="skill-tag-item"><i class="fas fa-server"></i> PostgreSQL</span>
+                        <span class="skill-tag-item"><i class="fab fa-aws"></i> AWS</span>
+                        <span class="skill-tag-item"><i class="fas fa-cloud"></i> Cloud</span>
+                        <span class="skill-tag-item"><i class="fas fa-vector-square"></i> ChromaDB</span>
+                        <span class="skill-tag-item"><i class="fas fa-users"></i> CrewAI</span>
+                        <span class="skill-tag-item"><i class="fas fa-microphone"></i> Whisper</span>
+                        <span class="skill-tag-item"><i class="fas fa-eye"></i> Gemini Vision</span>
                     </div>
                 </div>
             </div>
