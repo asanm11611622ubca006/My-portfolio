@@ -28,15 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ─── Skill Bar Animation ───
     function animateSkillBars() {
-        const skillBars = document.querySelectorAll('.skill-bar-fill, .progress-bar-fill');
-        skillBars.forEach(bar => {
-            const width = bar.getAttribute('data-width');
-            if (width) {
-                setTimeout(() => {
-                    bar.style.width = width + '%';
-                }, 300);
-            }
-        });
+        prepareBars('.skill-bar-fill, .progress-bar-fill');
     }
 
     // ─── Chart.js Skills Radar Chart ───
@@ -136,48 +128,80 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ─── Scroll Observer for Animations ───
-    const animationObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Trigger KPI counters when hero is visible
-                if (entry.target.classList.contains('kpi-dashboard')) {
-                    animateKPICounters();
-                }
-                // Trigger skill bars when skills section is visible
-                if (entry.target.closest('#skills')) {
-                    animateSkillBars();
-                }
-                // Trigger experience progress when visible
-                if (entry.target.closest('#experience')) {
-                    animateSkillBars();
-                }
+    // ─── Prepare bar widths (start at 0 so CSS can animate them) ───
+    function prepareBars(selector) {
+        var bars = document.querySelectorAll(selector);
+        for (var i = 0; i < bars.length; i++) {
+            var bar = bars[i];
+            var width = bar.getAttribute('data-width');
+            if (width) {
+                bar.style.setProperty('--target-width', width + '%');
+                bar.style.width = '0%';
             }
-        });
-    }, { threshold: 0.3 });
-
-    // Observe KPI dashboard
-    const kpiDashboard = document.querySelector('.kpi-dashboard');
-    if (kpiDashboard) animationObserver.observe(kpiDashboard);
-
-    // Observe skills section
-    const skillsSection = document.querySelector('#skills');
-    if (skillsSection) animationObserver.observe(skillsSection);
-
-    // Observe experience section
-    const experienceSection = document.querySelector('#experience');
-    if (experienceSection) animationObserver.observe(experienceSection);
-
-    // Trigger counters immediately if page is already scrolled
-    if (window.scrollY > 100) {
-        animateKPICounters();
+        }
     }
+
+    // ─── Per-Section Scroll Animations (8 unique styles) ───
+    var sectionObserver = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+            var entry = entries[i];
+            if (!entry.isIntersecting) continue;
+            var section = entry.target;
+            var id = section.id;
+            section.classList.add('is-animating');
+
+            if (id === 'home') {
+                animateKPICounters();
+            }
+            if (id === 'skills') {
+                prepareBars('.skill-bar-fill, .progress-bar-fill');
+            }
+            if (id === 'experience') {
+                prepareBars('.progress-bar-fill');
+            }
+
+            sectionObserver.unobserve(section);
+        }
+    }, { threshold: 0.12, rootMargin: '0px 0px -90px 0px' });
+
+    var allSections = document.querySelectorAll('section');
+    for (var i = 0; i < allSections.length; i++) {
+        sectionObserver.observe(allSections[i]);
+    }
+
+    // Animate immediately if user has already scrolled past a section
+    function handlePreScroll() {
+        var rect;
+        var id;
+        for (var i = 0; i < allSections.length; i++) {
+            var section = allSections[i];
+            rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100 && !section.classList.contains('is-animating')) {
+                section.classList.add('is-animating');
+                id = section.id;
+                if (id === 'home') animateKPICounters();
+                if (id === 'skills') prepareBars('.skill-bar-fill, .progress-bar-fill');
+                if (id === 'experience') prepareBars('.progress-bar-fill');
+            }
+        }
+    }
+    handlePreScroll();
+    window.addEventListener('scroll', handlePreScroll, { passive: true });
 
     // ─── Particle Background ───
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
     let animationId;
+
+    // Mouse interaction for particles
+    let particleMouseX = 0;
+    let particleMouseY = 0;
+    const particleColors = [
+        'rgba(139, 92, 246, ',   // purple
+        'rgba(6, 182, 212, ',    // teal
+        'rgba(244, 114, 182, '   // pink
+    ];
 
     function resizeCanvas() {
         canvas.width = window.innerWidth;
@@ -197,17 +221,34 @@ document.addEventListener('DOMContentLoaded', () => {
             this.speedX = (Math.random() - 0.5) * 0.4;
             this.speedY = (Math.random() - 0.5) * 0.4;
             this.opacity = Math.random() * 0.4 + 0.1;
+            this.colorIndex = Math.floor(Math.random() * particleColors.length);
         }
         update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
+            // Repel from mouse
+            const dx = this.x - particleMouseX;
+            const dy = this.y - particleMouseY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const forceDirectionX = dx / dist;
+            const forceDirectionY = dy / dist;
+            const force = (150 - dist) / 150;
+            const directionX = forceDirectionX * force * 0.5;
+            const directionY = forceDirectionY * force * 0.5;
+
+            if (dist < 150) {
+                this.x += directionX;
+                this.y += directionY;
+            } else {
+                this.x += this.speedX;
+                this.y += this.speedY;
+            }
+
             if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
             if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
         }
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(108, 99, 255, ${this.opacity})`;
+            ctx.fillStyle = particleColors[this.colorIndex] + this.opacity + ')';
             ctx.fill();
         }
     }
@@ -229,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < 150) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(108, 99, 255, ${0.05 * (1 - dist / 150)})`;
+                    ctx.strokeStyle = `rgba(139, 92, 246, ${0.05 * (1 - dist / 150)})`;
                     ctx.lineWidth = 0.5;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -249,9 +290,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ─── Cursor Glow ───
     const cursorGlow = document.getElementById('cursorGlow');
+    
+    // Interactive Glow Orbs (Mouse Follow with different speeds)
+    const glowOrbs = document.querySelectorAll('.interactive-glow');
+    let mouseX = 0;
+    let mouseY = 0;
+    let orbX = [0, 0, 0];
+    let orbY = [0, 0, 0];
+
     document.addEventListener('mousemove', (e) => {
+        // Cursor glow
         cursorGlow.style.left = e.clientX + 'px';
         cursorGlow.style.top = e.clientY + 'px';
+
+        // Update mouse position for glow orbs
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        // Update mouse position for particles
+        particleMouseX = e.clientX;
+        particleMouseY = e.clientY;
+    });
+
+    // Animate glow orbs with smooth follow
+    function animateGlowOrbs() {
+        const speeds = [0.15, 0.08, 0.05];
+        const offsets = [
+            { x: -100, y: -100 },
+            { x: 150, y: 50 },
+            { x: -50, y: 100 }
+        ];
+
+        glowOrbs.forEach((orb, index) => {
+            // Smooth lerp towards mouse with offset
+            orbX[index] += (mouseX + offsets[index].x - orbX[index]) * speeds[index];
+            orbY[index] += (mouseY + offsets[index].y - orbY[index]) * speeds[index];
+
+            orb.style.left = orbX[index] + 'px';
+            orb.style.top = orbY[index] + 'px';
+        });
+
+        requestAnimationFrame(animateGlowOrbs);
+    }
+    animateGlowOrbs();
+
+    // ─── Magnetic Button Effect ───
+    document.querySelectorAll('.btn.magnetic').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
     });
 
     // ─── Navbar Scroll ───
@@ -338,26 +432,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     typeEffect();
 
-    // ─── Scroll Reveal Animation ───
-    const revealElements = document.querySelectorAll(
-        '.glass-card, .section-title, .about-text, .about-image, .hero-content, .timeline-item, .education-card, .contact-card, .contact-text'
-    );
-
-    revealElements.forEach(el => el.classList.add('reveal'));
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    revealElements.forEach(el => observer.observe(el));
-
     // ─── Smooth scroll for anchor links ───
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -370,11 +444,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-    });
-
-    // ─── Skill tags animation  ───
-    document.querySelectorAll('.skill-tag').forEach((tag, index) => {
-        tag.style.animationDelay = `${index * 0.05}s`;
     });
 
     // ─── Project cards tilt effect ───
